@@ -41,6 +41,4 @@ Docker Desktop (precisa estar executando)
 
 ###  Run
 npm run dev.
-Após iniciar os dois servidores, acesse `http://localhost:4200` no seu navegador para usar a aplicação.
-
----
+Após iniciar acesse `http://localhost:4200` no seu navegador para usar a aplicação.
