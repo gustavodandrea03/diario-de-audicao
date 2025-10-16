@@ -1,44 +1,34 @@
-# diario-de-audicao
+Como Executar o Projeto
 
-Tecnologias Utilizadas
+Instale as Dependências
 
-#### **Backend (API)**
-- Node.js
-- Express.js
-- TypeScript
-- Prisma (ORM)
-- MySQL
-- Docker & Docker Compose
-- JWT (JSON Web Token) para autenticação
-
-#### **Frontend (Client)**
-- Angular
-- TypeScript
-- SCSS
-- Angular Material
-- RxJS
+Abra um terminal na pasta raiz do projeto e execute o comando abaixo para instalar todas as dependências necessárias.
 
 
-1- **Inicie o Banco de Dados(docker desktop):**
-    
-    ```
-    docker-compose up -d
-    ```
-Docker Desktop (precisa estar executando)
+npm run install:all
 
-2- **Crie as Tabelas no BD:**
-    ```
-    npx prisma migrate dev
-    ```
-      - qualquer nome
+Configure e Prepare o Backend
 
-3- ### Configuração Frontend (Client)
+Navegue até a pasta da API.
+cd api
 
-1.  **Abra o terminal e instale as dependências:**
-    ```
-    npm run install:all
-    ```
+Crie um arquivo chamado .env nesta pasta e configure as variáveis DATABASE_URL e JWT_SECRET.
 
-###  Run
-npm run dev.
-Após iniciar acesse `http://localhost:4200` no seu navegador para usar a aplicação.
+Inicie o banco de dados com Docker (garanta que o Docker Desktop esteja rodando):
+docker-compose up -d
+
+Crie as tabelas no banco de dados:
+npx prisma migrate dev
+(Dê qualquer nome quando solicitado, ex: "init")
+
+Inicie a Aplicação 
+
+Volte para a pasta raiz do projeto:
+cd ..
+
+Execute o comando para iniciar a API (backend) e a Aplicação (frontend) ao mesmo tempo:
+npm run dev
+
+Acesse a Aplicação
+Após os dois servidores iniciarem, acesse http://localhost:4200 no seu navegador.
+
