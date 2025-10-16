@@ -53,17 +53,22 @@ Este projeto requer **dois terminais** abertos para executar a aplicação compl
 
 **Terminal 1 - Iniciando o Backend**
 1.  Navegue até a pasta `api`.
+
 2.  **Configure as Variáveis de Ambiente:**
     * Crie um arquivo `.env` dentro da pasta `api`.
-  Coloque o conteudo enviado pelo Blackboard.
+  Coloque o dados de DATABASE_URL="" e JWT_SECRET=""
+
+
 3.  **Inicie o Banco de Dados:**
     ```bash
     docker-compose up -d
     ```
+    
 4.  **Crie as Tabelas no Banco:**
     ```bash
     npx prisma migrate dev
     ```
+    
 5.  **Inicie o Servidor da API:**
     ```bash
     npm run dev
