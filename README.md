@@ -23,7 +23,7 @@
 ##  Pré-requisitos
 
 Antes de começar, garanta que você tem as seguintes ferramentas instaladas e **em execução**:
-- [Node.js](https://nodejs.org/) (versão LTS recomendada)
+- [Node.js](https://nodejs.org/)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
 ## 🚀 Como Executar o Projeto
