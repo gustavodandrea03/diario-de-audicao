@@ -1,0 +1,45 @@
+<div class="artist-list-container">
+  <div class="header">
+    <h1>Seus Artistas</h1>
+    <button mat-flat-button color="primary" (click)="openArtistForm()">
+  <mat-icon>add</mat-icon>
+  Novo Artista
+</button>
+  </div>
+
+  @if (artists$ | async; as artists) {
+    <table mat-table [dataSource]="artists" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <td mat-cell *matCellDef="let artist"> {{artist.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Ações </th>
+        <td mat-cell *matCellDef="let artist">
+          <button mat-icon-button color="primary" aria-label="Editar artista" (click)="openArtistForm(artist)">
+  <mat-icon>edit</mat-icon>
+</button>
+          <button mat-icon-button color="warn" aria-label="Deletar artista" (click)="deleteArtist(artist.id, artist.name)">
+  <mat-icon>delete</mat-icon>
+</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    @if (artists.length === 0) {
+      <div class="empty-state">
+        <p>Nenhum artista cadastrado ainda. Que tal adicionar o primeiro?</p>
+      </div>
+    }
+
+  } @else {
+    <div class="spinner-container">
+      <mat-spinner></mat-spinner>
+    </div>
+  }
+</div>

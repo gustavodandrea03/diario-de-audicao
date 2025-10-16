@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>{{ isEditMode ? 'Editar Artista' : 'Novo Artista' }}</h2>
+<!-- Formulário reativo para criar ou editar um artista -->
+<mat-dialog-content [formGroup]="form">
+  <mat-form-field appearance="outline">
+    <mat-label>Nome do Artista</mat-label>
+    <input matInput formControlName="name" placeholder="Ex: Pink Floyd">
+    <mat-error *ngIf="form.get('name')?.hasError('required')">
+      O nome é obrigatório.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>URL da Imagem (Opcional)</mat-label>
+    <input matInput formControlName="imageUrl" placeholder="https://...">
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSave()">Salvar</button>
+</mat-dialog-actions>

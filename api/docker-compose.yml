@@ -1,0 +1,23 @@
+# docker-compose.yml
+
+version: '3.8'
+
+services:
+  db:
+    # Imagem oficial do MySQL versão 8
+    image: mysql:8.0
+    # Mapeia a porta 3306 do container para a porta 3306 da sua máquina
+    ports:
+      - '3307:3306'
+    # Define as variáveis de ambiente para configurar o MySQL
+    environment:
+      # Cria o banco de dados inicial com o nome 'diario-audicao'
+      MYSQL_DATABASE: 'diario-audicao'
+      # Define a senha do usuário 'root'. Mantenha simples para dev.
+      MYSQL_ROOT_PASSWORD: 'root'
+    # Define um volume para que os dados não se percam se o container for recriado
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:

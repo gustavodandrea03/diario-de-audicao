@@ -1,0 +1,12 @@
+/* Importa um tema pré-construído do Angular Material */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+/* Estilos globais básicos */
+html, body { 
+  height: 100%; 
+}
+
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+}

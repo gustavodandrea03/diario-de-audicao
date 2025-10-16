@@ -1,0 +1,33 @@
+<h2 mat-dialog-title>{{ isEditMode ? 'Editar Álbum' : 'Novo Álbum' }}</h2>
+<!-- Formulário reativo para criar ou editar um álbum -->
+
+<mat-dialog-content [formGroup]="form">
+  <mat-form-field appearance="outline">
+    <mat-label>Título do Álbum</mat-label>
+    <input matInput formControlName="title">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Artista</mat-label>
+    <mat-select formControlName="artistId">
+      @for (artist of (artists$ | async); track artist.id) {
+        <mat-option [value]="artist.id">{{ artist.name }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Ano de Lançamento</mat-label>
+    <input matInput formControlName="releaseYear" type="number">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>URL da Imagem da Capa (Opcional)</mat-label>
+    <input matInput formControlName="coverImageUrl">
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSave()">Salvar</button>
+</mat-dialog-actions>

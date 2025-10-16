@@ -1,0 +1,17 @@
+.sidenav-container {
+  height: 100vh;
+}
+
+.sidenav {
+  width: 230px;
+  // Adiciona uma borda sutil para separar do conteúdo
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.content {
+  padding: 24px;
+}
